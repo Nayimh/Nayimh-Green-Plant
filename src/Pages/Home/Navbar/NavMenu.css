@@ -1,0 +1,22 @@
+.green{
+    color: green;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.red{
+    color: orangered;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.orange{
+    color: orangered;
+
+}
+
+.blue{
+    color: green;
+}
