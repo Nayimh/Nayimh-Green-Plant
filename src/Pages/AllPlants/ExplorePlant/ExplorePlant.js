@@ -3,14 +3,16 @@ import { Card } from 'react-bootstrap';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 
+import { Link } from 'react-router-dom';
+
 const ExplorePlant = (props) => {
-    const { name, img, desc, price } = props.plant;
+    const { name, img, desc, price, id } = props.plant;
     useEffect(()=> {
         Aos.init({
             once: true,
         })
     });
-
+   
     return (
         <div  className=' col-md-6 col-lg-4 col-xm-12'>
             
@@ -26,8 +28,9 @@ const ExplorePlant = (props) => {
                         { desc}
       </Card.Text>
     </Card.Body>
-    <Card.Footer className='text-center'>
-      <button className='cardBtn'>Details</button>
+                <Card.Footer className='text-center'>
+                    <Link to={`/booking/${id}`}><button className='cardBtn'>Details</button></Link>
+      
     </Card.Footer>
   </Card>
   

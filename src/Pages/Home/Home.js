@@ -1,7 +1,5 @@
 import React from 'react';
 import AboutUs from '../AboutUs/AboutUs';
-
-// import ExplorePlants from '../AllPlants/ExplorePlants/ExplorePlants';
 import HomePlants from '../AllPlants/HomePlants/HomePlants/HomePlants';
 import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
@@ -15,7 +13,6 @@ const Home = () => {
             <Banner />
             <HomePlants />
             <AboutUs />
-            {/* <ExplorePlants/> */}
             <Contact/>
             <Footer/>
         </div>
