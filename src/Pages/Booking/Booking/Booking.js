@@ -11,13 +11,13 @@ const Booking = () => {
     const [details, setDetails] = useState({});
 
     useEffect(() => {
-        fetch('/tree.json')
+        fetch('https://serene-gorge-52503.herokuapp.com/bonsai')
             .then(res => res.json())
             .then(dt => setPlants(dt)) 
     }, [])
     
     useEffect(() => {
-        const foundDetails = plants.find(plant => plant.id === parseInt(id));
+        const foundDetails = plants.find(plant => plant._id === id);
         setDetails(foundDetails);
    } ,[id, plants])
 
@@ -46,7 +46,7 @@ const Booking = () => {
       </Card.Text> */}
     </Card.Body>
     <Card.Footer className='text-center'>
-                   <button className='cardBtn'>Purchase</button>
+                   <button className='cardBtn'>Add to cart</button>
       
     </Card.Footer>    
   </Card>

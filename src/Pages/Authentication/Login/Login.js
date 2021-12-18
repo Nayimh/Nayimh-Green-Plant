@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Badge, Form, Spinner } from 'react-bootstrap';
 import './Login.css'
 import img from '../../../image/banner3.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Firebase/Hooks/useAuth';
+
+// import { useLocation } from 'react-router-dom';
 const Login = () => {
     const { loginUser, isLoading, authError, user } = useAuth();
     const [loginData, setLoginData] = useState({});
+    
+    let nav = useNavigate();
 
     const handleOnchange = e => {
         const field = e.target.name;
@@ -14,12 +18,12 @@ const Login = () => {
         const newData = { ...loginData };
         newData[field] = value;
         setLoginData(newData);
-        console.log(newData)
+        
     }
 
     const handleLogin = e => {
         loginUser(loginData?.email, loginData?.password);   
-        
+        nav(-1)
     e.preventDefault()
 }
 
@@ -47,6 +51,8 @@ const Login = () => {
   </Form.Group>
   <button type="submit" className='contactBtn'>Login</button>
                             </Form>}
+                        <div>-------------or-------------</div>
+                        {/* <button onClick={signInwithGoogle} className='contactBtn'>Login</button> */}
                         {
                             
                 user?.email ? <Badge bg="success">Successfully LoggedIn</Badge > : " "

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Badge, Form, Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../../image/banner3.jpg'
 import useAuth from '../../Firebase/Hooks/useAuth';
 const Register = () => {
   const { registerUser, isLoading, user, authError } = useAuth();
   const [loginData, setLoginData] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = e => {
     const field = e.target.name;
@@ -13,7 +15,7 @@ const Register = () => {
         const newData = { ...loginData };
         newData[field] = value;
         setLoginData(newData);
-        console.log(newData)
+       
 
 
   }
@@ -24,8 +26,8 @@ const Register = () => {
       alert('your password did not matched');
       return;
     }
-    registerUser(loginData?.email, loginData?.password);
-   
+    registerUser(loginData?.email, loginData?.password, loginData?.name);
+    navigate('/home');
     e.preventDefault();
   }
 
@@ -62,7 +64,7 @@ const Register = () => {
     
   </Form.Group>
   
-  <button type='submit' className='contactBtn'>Login</button>
+  <button type='submit' className='contactBtn'>Register</button>
                 </Form>}
               {
                 user?.email && <Badge bg="success">Successfully created</Badge>

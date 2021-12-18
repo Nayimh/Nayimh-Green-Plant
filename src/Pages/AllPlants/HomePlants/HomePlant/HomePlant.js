@@ -8,7 +8,7 @@ import Aos from 'aos';
 import { Link } from 'react-router-dom';
 
 const HomePlant = (props) => {
-    const {  name, img, desc, price, id } = props.plant;
+    const {  name, img, desc, price, id: _id } = props.plant;
 
     useEffect(()=> {
         Aos.init({
@@ -32,7 +32,7 @@ const HomePlant = (props) => {
       </Card.Text>
     </Card.Body>
                 <Card.Footer className='text-center'>
-                    <Link to={`/booking/${id}`}><button className='cardBtn'>Details</button></Link>
+                    <Link to={`/booking/${_id}`}><button className='cardBtn'>Details</button></Link>
       
     </Card.Footer>
   </Card>

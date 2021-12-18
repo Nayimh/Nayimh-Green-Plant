@@ -11,22 +11,29 @@ import Register from './Pages/Authentication/Register/Register';
 import MainDashBoard from './Pages/Dashboard/MainDashBoard/MainDashBoard';
 import AuthProvider from './Pages/Firebase/Context/AuthProvider/AuthProvider';
 import ProtectedRoute from './Pages/Authentication/PrivateRoute/ProtectedRoute';
-// import NavMenu from './Pages/Home/Navbar/NavMenu';
-// import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import AddTree from './Pages/Dashboard/AddTree/AddTree';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import NavMenu from './Pages/Home/Navbar/NavMenu';
+
 
 function App() {
   return (
     <div>
       <AuthProvider>
         <BrowserRouter>
-          {/* <NavMenu/> */}
+          <NavMenu/>
         <Routes>
           <Route path="/" element={ <Home/>}/>
           <Route path="home" element={<Home />} />
             <Route path="explore" element={<ProtectedRoute>
               <AllPlants />
           </ProtectedRoute>} />
-          <Route path="dashboard" element={<MainDashBoard />} />
+            <Route path="dashboard" element={<MainDashBoard />} >
+           
+            </Route>
+            <Route path="addTree" element={<AddTree />} />
+              <Route path="makeAdmin" element={<MakeAdmin/> } />
+            
             <Route path="booking/:id" element={<ProtectedRoute>
               <MainBooking />
           </ProtectedRoute>} />

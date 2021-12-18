@@ -5,7 +5,7 @@ const ExplorePlants = () => {
     const [plants, setPlants] = useState([]);
 
     useEffect(() => {
-        fetch('./tree.json')
+        fetch('https://serene-gorge-52503.herokuapp.com/bonsai')
             .then(res => res.json())
             .then(data => setPlants(data))
     } ,[])
@@ -20,7 +20,7 @@ const ExplorePlants = () => {
                 <div className='row  justify-content-center mx-auto'>
                     {
                         plants.map(plant => <ExplorePlant
-                            key={plant.id}
+                            key={plant._id}
                             plant={plant}
                         ></ExplorePlant>)
                         }
